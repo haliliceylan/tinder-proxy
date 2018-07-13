@@ -11,7 +11,8 @@ class ProxyServer(Thread):
         serversock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         serversock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         serversock.bind(ADDR)
-        # serversock = ssl.wrap_socket (serversock, certfile='./server.pem', server_side=True)
+        serversock = ssl.wrap_socket (serversock, certfile="ca/device.crt", keyfile="ca/device.key", server_side=True)
+        #serversock = ssl.wrap_socket(serversock, server_side=True, certfile="ca/device.crt", keyfile="ca/device.key", ssl_version=ssl.PROTOCOL_TLSv1_2)
         serversock.listen(5)
         self.serversock = serversock
 

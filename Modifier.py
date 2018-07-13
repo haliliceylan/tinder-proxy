@@ -24,11 +24,34 @@ def gzip_remover(string):
     string = string.replace("gzip,","")
     return string
 
+def location_changer(string):
+    string = string.replace('{"lat":37.06,"lon":37.34}','{"lat":36.54,"lon":31.99}')
+    if(string.find('{"lat":36.54,"lon":31.99}') != -1):
+        print "location modified"
+        print "location modified"
+        print "location modified"
+        print "location modified"
+        print "location modified"
+        print "location modified"
+        print "location modified"
+        print "location modified"
+        print "location modified"
+        print "location modified"
+        print "location modified"
+        print "location modified"
+        print "location modified"
+        print "location modified"
+        print "location modified"
+        print "location modified"
+        print "location modified"
+
+    return string
 # MAIN METHOD
 
 def request(string):
     #string = change_fake_domain_from_request(string)
     string = gzip_remover(string)
+    string = location_changer(string)
     print "<======================== REQUEST <-> START <-> REQUEST ========================>"
     print string
     print "<======================== REQUEST <-> END <-> REQUEST ========================>"
